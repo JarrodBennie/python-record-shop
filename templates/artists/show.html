@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>{{artist.name}}</h1>
+<h2>Albums</h2>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Quantity</th>
+  </thead>
+  <tbody>
+    {% for album in albums %}
+      <tr>
+        <td>{{album.title}}</td>
+        <td>{{album.quantity}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/artists/{{artist.id}}/edit">Edit</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Artists</h1>
+<a href="/artists/new">New Artist</a>
+<table>
+  <thead>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    {% for artist in artists %}
+      <tr>
+        <td>{{artist.name}}</td>
+        <td><a href="/artists/{{artist.id}}">Details<a></td>
+        <td>
+          <form action="/artists/{{artist.id}}/delete" method="POST">
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

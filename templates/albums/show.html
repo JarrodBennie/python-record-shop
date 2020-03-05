@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>{{album.title}}</h1>
+<p>Artist: {{album.artist.name}}</p>
+<p>Quantity: {{album.quantity}}</p>
+<a href="/albums/{{album.id}}/edit">Edit</a>
+{% endblock %}

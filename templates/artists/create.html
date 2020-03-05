@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>New Artist</h1>
+<form action="/artists" method="POST">
+  <label for="name">Name</label>
+  <input type="name" name="name" id="name"  placeholder="Name" required autofocus />
+  <input type="submit" value="Save" />
+</form>
+{% endblock %}

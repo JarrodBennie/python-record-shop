@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Albums</h1>
+<a href="/albums/new">New Album</a>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    {% for album in albums %}
+      <tr>
+        <td>{{album.title}}</td>
+        <td>{{album.artist.name}}</td>
+        <td class="{{album.stock_level()}}">{{album.quantity}}</td>
+        <td><a href="/albums/{{album.id}}">Details<a></td>
+        <td>
+          <form action="/albums/{{album.id}}/delete" method="POST">
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
