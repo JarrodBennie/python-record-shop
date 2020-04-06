@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 
 def run_sql(sql, values = None):
     results = []
