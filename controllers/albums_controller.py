@@ -24,7 +24,6 @@ def new_album():
     artist = artist_repository.select(artist_id)
     title = request.form["title"]
     quantity = request.form["quantity"]
-    id = request.form["id"]
     album = Album(title, artist, quantity, id)
     album_repository.save(album)
     return redirect("/albums")
@@ -42,11 +41,10 @@ def edit_album(id):
 
 @albums_blueprint.route("/albums/<id>", methods=["POST"])
 def update_album(id):
-    artist = artist_repository.select(request.form.artist_id)
-    request.form["artist"] = artist
+    artist_id = request.form["artist_id"]
+    artist = artist_repository.select(artist_id)
     title = request.form["title"]
     quantity = request.form["quantity"]
-    id = request.form["id"]
     album = Album(title, artist, quantity, id)
     album_repository.update(album)
     return redirect("/albums")
